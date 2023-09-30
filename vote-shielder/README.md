@@ -6,16 +6,16 @@ For the simplest example use commands:
 ```
 ```bash
 cd cli
-./target/release/shielder-cli deposit 0 10
+./target/release/shielder-cli deposit 0 10 --caller-seed //0
 ```
 ```bash
-./target/release/shielder-cli vote 0 6 4
+./target/release/shielder-cli vote 0 6 4 --caller-seed //0
 ```
 ```bash
-./target/release/shielder-cli deposit 0 10
+./target/release/shielder-cli deposit 0 10 --caller-seed //1
 ```
 ```bash
-./target/release/shielder-cli vote 0 9 1
+./target/release/shielder-cli vote 0 9 1 --caller-seed //1
 ```
 ```bash
 ./target/release/shielder-cli decrypt

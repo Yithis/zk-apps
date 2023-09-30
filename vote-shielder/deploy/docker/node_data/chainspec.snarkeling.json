@@ -22,11 +22,11 @@
       "balances": {
         "balances": [
           [
-            "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
+            "5D34dL5prEUaGNQtPPZ3yN5Y6BnkfXunKXXz6fo7ZJbLwRRH",
             150000000000000000000
           ],
           [
-            "5D34dL5prEUaGNQtPPZ3yN5Y6BnkfXunKXXz6fo7ZJbLwRRH",
+            "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
             150000000000000000000
           ],
           [
@@ -64,8 +64,8 @@
             "5D34dL5prEUaGNQtPPZ3yN5Y6BnkfXunKXXz6fo7ZJbLwRRH",
             "5D34dL5prEUaGNQtPPZ3yN5Y6BnkfXunKXXz6fo7ZJbLwRRH",
             {
-              "aura": "5Deb9mqMTFv6V4H7epZUNyXMnqaDGyBfjk3fWz4UTK6PdxQB",
-              "aleph": "5CgTinqSM4wfaWUP4C5WheQxCHB3r9EV22PKShTbsQp32mwR"
+              "aura": "5FZbu6M724nH2ta81iTtcJwQxoigjHoMSqmTQ6Nj3iEH7MtH",
+              "aleph": "5FA93EA1NrrMSQ4Uhhz5TwZ3khaKLhdFUQbx4LfbnEnVu7uF"
             }
           ]
         ]
