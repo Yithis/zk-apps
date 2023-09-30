@@ -1,12 +1,7 @@
 #![cfg_attr(not(feature = "std"), no_std)]
-<<<<<<< HEAD
 #![feature(min_specialization, default_alloc_error_handler)]
 
 use ark_std::vec::Vec;
-=======
-#![feature(min_specialization)]
-
->>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 use baby_liminal_extension::{ProvingSystem, VerificationKeyIdentifier};
 use ink::storage::Mapping;
 
@@ -22,15 +17,9 @@ type MerkleRoot = MerkleHash;
 /// Type of the nullifier.
 type Nullifier = MerkleHash;
 /// Type of the encrypted vote.
-<<<<<<< HEAD
 type AggregatedVote = Vec<u8>;
 /// Type of the encrypted vote.
 type EncryptedVote = [u8; 48];
-=======
-type EncryptedVote = [u64; 26];
-/// Type of the aggregated vote.
-type AggregatedVote = [u64; 26];
->>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 
 /// Short identifier of a registered token contract.
 type TokenId = u16;
@@ -51,11 +40,7 @@ const MERGE_VK_IDENTIFIER: VerificationKeyIdentifier =
 /// Verification key identifier for the `withdraw` relation (to be registered in `pallet_snarcos`).
 const WITHDRAW_VK_IDENTIFIER: VerificationKeyIdentifier =
     [b'w', b'i', b't', b'h', b'd', b'r', b'a', b'w'];
-<<<<<<< HEAD
 /// Verification key identifier for the `vote` relation (to be registered in `pallet_snarcos`).
-=======
-/// Verification key identifier for the `withdraw` relation (to be registered in `pallet_snarcos`).
->>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 const VOTE_VK_IDENTIFIER: VerificationKeyIdentifier =
     [b'v', b'o', b't', b'e', b'v', b'o', b't', b'e'];
 /// The only supported proving system for now.

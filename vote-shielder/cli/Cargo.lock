@@ -256,10 +256,6 @@ dependencies = [
  "ark-ec",
  "ark-ff",
  "ark-poly",
-<<<<<<< HEAD
-=======
- "ark-relations",
->>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
  "ark-serialize",
  "ark-std",
  "derivative",
@@ -1001,10 +997,7 @@ dependencies = [
 [[package]]
 name = "dock_crypto_utils"
 version = "0.14.0"
-<<<<<<< HEAD
 source = "git+https://github.com/Yithis/crypto.git?branch=aleph-saver#e878d9d195e01b968dcb7dbf5da045e337910fe3"
-=======
->>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 dependencies = [
  "ark-ec",
  "ark-ff",
@@ -1020,10 +1013,7 @@ dependencies = [
 [[package]]
 name = "dock_merlin"
 version = "2.0.0"
-<<<<<<< HEAD
 source = "git+https://github.com/Yithis/crypto.git?branch=aleph-saver#e878d9d195e01b968dcb7dbf5da045e337910fe3"
-=======
->>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 dependencies = [
  "ark-serialize",
  "ark-std",
@@ -1966,10 +1956,7 @@ dependencies = [
 [[package]]
 name = "liminal-ark-pnbr-poseidon-parameters"
 version = "0.1.0"
-<<<<<<< HEAD
 source = "git+https://github.com/Yithis/poseidon377.git#6a0110f7235fddf94e05e1b351aa87853facf06b"
-=======
->>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 dependencies = [
  "anyhow",
  "ark-ff",
@@ -1979,10 +1966,7 @@ dependencies = [
 [[package]]
 name = "liminal-ark-pnbr-poseidon-permutation"
 version = "0.1.0"
-<<<<<<< HEAD
 source = "git+https://github.com/Yithis/poseidon377.git#6a0110f7235fddf94e05e1b351aa87853facf06b"
-=======
->>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 dependencies = [
  "ark-ff",
  "ark-std",
@@ -1992,10 +1976,7 @@ dependencies = [
 [[package]]
 name = "liminal-ark-poseidon"
 version = "0.1.0"
-<<<<<<< HEAD
 source = "git+https://github.com/Yithis/aleph-node.git?branch=aleph-saver#d2dfa33e1b7c6db5817535c8aa23f1d67e81c878"
-=======
->>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 dependencies = [
  "ark-bls12-381",
  "ark-crypto-primitives",
@@ -2010,10 +1991,7 @@ dependencies = [
 [[package]]
 name = "liminal-ark-relation-macro"
 version = "0.1.3"
-<<<<<<< HEAD
 source = "git+https://github.com/Yithis/aleph-node.git?branch=aleph-saver#d2dfa33e1b7c6db5817535c8aa23f1d67e81c878"
-=======
->>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 dependencies = [
  "darling",
  "proc-macro2",
@@ -2024,10 +2002,7 @@ dependencies = [
 [[package]]
 name = "liminal-ark-relations"
 version = "0.4.0"
-<<<<<<< HEAD
 source = "git+https://github.com/Yithis/aleph-node.git?branch=aleph-saver#d2dfa33e1b7c6db5817535c8aa23f1d67e81c878"
-=======
->>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 dependencies = [
  "ark-bls12-381",
  "ark-crypto-primitives",
@@ -2046,11 +2021,8 @@ dependencies = [
  "liminal-ark-poseidon",
  "liminal-ark-relation-macro",
  "paste",
-<<<<<<< HEAD
  "saver",
  "sha2 0.10.7",
-=======
->>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 ]
 
 [[package]]
@@ -2845,10 +2817,7 @@ checksum = "f91339c0467de62360649f8d3e185ca8de4224ff281f66000de5eb2a77a79041"
 [[package]]
 name = "saver"
 version = "0.12.0"
-<<<<<<< HEAD
 source = "git+https://github.com/Yithis/crypto.git?branch=aleph-saver#e878d9d195e01b968dcb7dbf5da045e337910fe3"
-=======
->>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 dependencies = [
  "ark-ec",
  "ark-ff",
@@ -4079,11 +4048,7 @@ checksum = "97fee6b57c6a41524a810daee9286c02d7752c4253064d0b05472833a438f675"
 dependencies = [
  "cfg-if",
  "digest 0.10.7",
-<<<<<<< HEAD
  "rand 0.7.3",
-=======
- "rand 0.8.5",
->>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
  "static_assertions",
 ]
 

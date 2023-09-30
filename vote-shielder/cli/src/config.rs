@@ -2,13 +2,7 @@ use std::path::PathBuf;
 
 use aleph_client::AccountId;
 use clap::{Args, Parser, Subcommand, ValueEnum};
-<<<<<<< HEAD
 use liminal_ark_relations::shielder::types::{FrontendTokenAmount, FrontendTokenId, FrontendVote};
-=======
-use liminal_ark_relations::shielder::types::{
-    FrontendEncryptedVote, FrontendTokenAmount, FrontendTokenId,
-};
->>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 use shielder::DepositId;
 
 #[derive(Clone, Eq, PartialEq, Parser)]
@@ -45,21 +39,8 @@ pub enum Command {
 
 #[derive(Clone, Eq, PartialEq, Debug, Subcommand)]
 pub enum EncryptionCommand {
-<<<<<<< HEAD
     /// Return current voting result for token 0
     Decrypt {},
-=======
-    /// Set WS address of the node that we will be connecting to.
-    Encrypt {
-        /// WS endpoint address of the node to connect to.
-        message: String,
-    },
-    /// Set address of the Shielder contract.
-    Decrypt {
-        /// Address of the Shielder contract.
-        ciphertext: String,
-    },
->>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 }
 
 #[derive(Clone, Eq, PartialEq, Debug, Subcommand)]
@@ -123,15 +104,9 @@ pub struct VoteCmd {
     /// Token id (must already be registered in the contract).
     pub token_id: FrontendTokenId,
 
-<<<<<<< HEAD
     pub first_vote: FrontendVote,
 
     pub second_vote: FrontendVote,
-=======
-    pub first_vote: FrontendTokenAmount,
-
-    pub second_vote: FrontendTokenAmount,
->>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 
     /// Seed for submitting the transaction.
     ///
@@ -256,11 +231,7 @@ pub enum LoggingFormat {
     Json,
 }
 
-<<<<<<< HEAD
 pub mod parsing {
-=======
-mod parsing {
->>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
     use std::{path::PathBuf, str::FromStr};
 
     use anyhow::{anyhow, Result};

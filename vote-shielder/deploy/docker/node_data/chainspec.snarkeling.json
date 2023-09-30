@@ -22,19 +22,11 @@
       "balances": {
         "balances": [
           [
-<<<<<<< HEAD
             "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
             150000000000000000000
           ],
           [
             "5D34dL5prEUaGNQtPPZ3yN5Y6BnkfXunKXXz6fo7ZJbLwRRH",
-=======
-            "5D34dL5prEUaGNQtPPZ3yN5Y6BnkfXunKXXz6fo7ZJbLwRRH",
-            150000000000000000000
-          ],
-          [
-            "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
->>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             150000000000000000000
           ],
           [
@@ -72,13 +64,8 @@
             "5D34dL5prEUaGNQtPPZ3yN5Y6BnkfXunKXXz6fo7ZJbLwRRH",
             "5D34dL5prEUaGNQtPPZ3yN5Y6BnkfXunKXXz6fo7ZJbLwRRH",
             {
-<<<<<<< HEAD
-              "aura": "5Ec9YAdg9kSF2Yq74GSkQUryoDnWoDCFGwEhSDgTq3ccpnxZ",
-              "aleph": "5EUtdAByocetPThib2uP4KFxxBC5qnataYr29WZZVZ1haWAb"
-=======
-              "aura": "5GujEkqNjcPwGSvXrXnF7b3C1KHhDuitv8W9emGqJDxkstET",
-              "aleph": "5EwKRwECz3UduAm4y9S4dsA31GkoNybLAhcTwnvZggJ9iHEL"
->>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
+              "aura": "5Deb9mqMTFv6V4H7epZUNyXMnqaDGyBfjk3fWz4UTK6PdxQB",
+              "aleph": "5CgTinqSM4wfaWUP4C5WheQxCHB3r9EV22PKShTbsQp32mwR"
             }
           ]
         ]
