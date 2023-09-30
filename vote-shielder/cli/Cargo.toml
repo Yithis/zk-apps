@@ -50,14 +50,22 @@ ark-snark = { version = "^0.4.0", default-features = false }
 ark-std = { version = "^0.4.0", default-features = false }
 # todo: change this for versioned `aleph-client` right away after publishing it
 aleph_client = "3.0.0"
+<<<<<<< HEAD
 liminal-ark-relations = { git = "https://github.com/Yithis/aleph-node.git", branch = "aleph-saver", package = "liminal-ark-relations", default-features = false, features = [
     "circuit",
 ] }
+=======
+liminal-ark-relations = { path = "../../usr/local/aleph-node/relations" }
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 
 ink-wrapper-types = "0.4.0"
 ink_primitives = "4.0.1"
 
+<<<<<<< HEAD
 saver = { git = "https://github.com/Yithis/crypto.git", branch = "aleph-saver", package = "saver", default-features = false }
+=======
+saver = { path = "../../usr/local/crypto/saver", default-features = false }
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 
 [dev-dependencies]
 serial_test = "1.0.0"

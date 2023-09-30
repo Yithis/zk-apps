@@ -1,6 +1,10 @@
 {
   "source": {
+<<<<<<< HEAD
     "hash": "0x0d4d85212fe2ba2da46a0ca6697034913d1acbd75632bb2c9017cebb86ac4796",
+=======
+    "hash": "0x93eb3dbab26ecd689e564123ac85fd5afa80e1e1cd6583da7c8c6c720299802a",
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
     "language": "ink! 4.0.1",
     "compiler": "rustc 1.67.0-nightly",
     "build_info": {
@@ -47,7 +51,11 @@
             "ink_primitives",
             "ConstructorResult"
           ],
+<<<<<<< HEAD
           "type": 7
+=======
+          "type": 6
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
         },
         "selector": "0x9bae9d5e"
       }
@@ -64,7 +72,11 @@
               "displayName": [
                 "TokenId"
               ],
+<<<<<<< HEAD
               "type": 9
+=======
+              "type": 8
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -75,7 +87,11 @@
               "displayName": [
                 "TokenAmount"
               ],
+<<<<<<< HEAD
               "type": 10
+=======
+              "type": 9
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -97,7 +113,11 @@
               "displayName": [
                 "Note"
               ],
+<<<<<<< HEAD
               "type": 11
+=======
+              "type": 10
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           }
         ],
@@ -114,7 +134,11 @@
               "displayName": [
                 "TokenId"
               ],
+<<<<<<< HEAD
               "type": 9
+=======
+              "type": 8
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -125,7 +149,11 @@
               "displayName": [
                 "TokenAmount"
               ],
+<<<<<<< HEAD
               "type": 10
+=======
+              "type": 9
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -158,7 +186,11 @@
               "displayName": [
                 "Note"
               ],
+<<<<<<< HEAD
               "type": 11
+=======
+              "type": 10
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           }
         ],
@@ -175,7 +207,11 @@
               "displayName": [
                 "TokenId"
               ],
+<<<<<<< HEAD
               "type": 9
+=======
+              "type": 8
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -186,7 +222,11 @@
               "displayName": [
                 "TokenAmount"
               ],
+<<<<<<< HEAD
               "type": 10
+=======
+              "type": 9
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           }
         ],
@@ -203,7 +243,11 @@
               "displayName": [
                 "TokenId"
               ],
+<<<<<<< HEAD
               "type": 9
+=======
+              "type": 8
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -231,7 +275,11 @@
               "displayName": [
                 "TokenId"
               ],
+<<<<<<< HEAD
               "type": 9
+=======
+              "type": 8
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -253,7 +301,11 @@
               "displayName": [
                 "Note"
               ],
+<<<<<<< HEAD
               "type": 11
+=======
+              "type": 10
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           }
         ],
@@ -266,7 +318,11 @@
         "ink",
         "LangError"
       ],
+<<<<<<< HEAD
       "type": 8
+=======
+      "type": 7
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
     },
     "messages": [
       {
@@ -277,7 +333,11 @@
               "displayName": [
                 "TokenId"
               ],
+<<<<<<< HEAD
               "type": 9
+=======
+              "type": 8
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -286,7 +346,11 @@
               "displayName": [
                 "TokenAmount"
               ],
+<<<<<<< HEAD
               "type": 10
+=======
+              "type": 9
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -295,7 +359,11 @@
               "displayName": [
                 "Note"
               ],
+<<<<<<< HEAD
               "type": 11
+=======
+              "type": 10
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -304,7 +372,11 @@
               "displayName": [
                 "Vec"
               ],
+<<<<<<< HEAD
               "type": 6
+=======
+              "type": 11
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           }
         ],
@@ -331,7 +403,11 @@
               "displayName": [
                 "TokenId"
               ],
+<<<<<<< HEAD
               "type": 9
+=======
+              "type": 8
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -340,7 +416,11 @@
               "displayName": [
                 "TokenAmount"
               ],
+<<<<<<< HEAD
               "type": 10
+=======
+              "type": 9
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -367,7 +447,11 @@
               "displayName": [
                 "MerkleRoot"
               ],
+<<<<<<< HEAD
               "type": 11
+=======
+              "type": 10
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -376,7 +460,11 @@
               "displayName": [
                 "Nullifier"
               ],
+<<<<<<< HEAD
               "type": 11
+=======
+              "type": 10
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -385,7 +473,11 @@
               "displayName": [
                 "Note"
               ],
+<<<<<<< HEAD
               "type": 11
+=======
+              "type": 10
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -394,7 +486,11 @@
               "displayName": [
                 "Vec"
               ],
+<<<<<<< HEAD
               "type": 6
+=======
+              "type": 11
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           }
         ],
@@ -465,7 +561,11 @@
               "displayName": [
                 "Nullifier"
               ],
+<<<<<<< HEAD
               "type": 11
+=======
+              "type": 10
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           }
         ],
@@ -501,7 +601,11 @@
               "displayName": [
                 "Vec"
               ],
+<<<<<<< HEAD
               "type": 6
+=======
+              "type": 11
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           }
         ],
@@ -530,7 +634,11 @@
               "displayName": [
                 "TokenId"
               ],
+<<<<<<< HEAD
               "type": 9
+=======
+              "type": 8
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           }
         ],
@@ -557,7 +665,11 @@
               "displayName": [
                 "TokenId"
               ],
+<<<<<<< HEAD
               "type": 9
+=======
+              "type": 8
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -595,7 +707,11 @@
               "displayName": [
                 "TokenId"
               ],
+<<<<<<< HEAD
               "type": 9
+=======
+              "type": 8
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -604,7 +720,11 @@
               "displayName": [
                 "TokenAmount"
               ],
+<<<<<<< HEAD
               "type": 10
+=======
+              "type": 9
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -613,7 +733,11 @@
               "displayName": [
                 "MerkleRoot"
               ],
+<<<<<<< HEAD
               "type": 11
+=======
+              "type": 10
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -622,7 +746,11 @@
               "displayName": [
                 "Nullifier"
               ],
+<<<<<<< HEAD
               "type": 11
+=======
+              "type": 10
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -631,7 +759,11 @@
               "displayName": [
                 "Note"
               ],
+<<<<<<< HEAD
               "type": 11
+=======
+              "type": 10
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -640,7 +772,11 @@
               "displayName": [
                 "Vec"
               ],
+<<<<<<< HEAD
               "type": 6
+=======
+              "type": 11
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           }
         ],
@@ -667,7 +803,11 @@
               "displayName": [
                 "TokenId"
               ],
+<<<<<<< HEAD
               "type": 9
+=======
+              "type": 8
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -676,7 +816,11 @@
               "displayName": [
                 "MerkleRoot"
               ],
+<<<<<<< HEAD
               "type": 11
+=======
+              "type": 10
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -685,7 +829,11 @@
               "displayName": [
                 "Nullifier"
               ],
+<<<<<<< HEAD
               "type": 11
+=======
+              "type": 10
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -694,7 +842,11 @@
               "displayName": [
                 "Nullifier"
               ],
+<<<<<<< HEAD
               "type": 11
+=======
+              "type": 10
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -703,7 +855,11 @@
               "displayName": [
                 "Note"
               ],
+<<<<<<< HEAD
               "type": 11
+=======
+              "type": 10
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -712,7 +868,11 @@
               "displayName": [
                 "Vec"
               ],
+<<<<<<< HEAD
               "type": 6
+=======
+              "type": 11
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           }
         ],
@@ -739,7 +899,11 @@
               "displayName": [
                 "TokenId"
               ],
+<<<<<<< HEAD
               "type": 9
+=======
+              "type": 8
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -748,7 +912,11 @@
               "displayName": [
                 "Nullifier"
               ],
+<<<<<<< HEAD
               "type": 11
+=======
+              "type": 10
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -757,6 +925,7 @@
               "displayName": [
                 "TokenAmount"
               ],
+<<<<<<< HEAD
               "type": 10
             }
           },
@@ -780,6 +949,13 @@
           },
           {
             "label": "encrypted_second_vote",
+=======
+              "type": 9
+            }
+          },
+          {
+            "label": "encrypted_vote",
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             "type": {
               "displayName": [
                 "EncryptedVote"
@@ -793,7 +969,11 @@
               "displayName": [
                 "MerkleRoot"
               ],
+<<<<<<< HEAD
               "type": 11
+=======
+              "type": 10
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           },
           {
@@ -802,12 +982,20 @@
               "displayName": [
                 "Vec"
               ],
+<<<<<<< HEAD
               "type": 6
+=======
+              "type": 11
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             }
           }
         ],
         "docs": [
+<<<<<<< HEAD
           " Trigger vote action (see ADR for detailed description)."
+=======
+          " Trigger withdraw action (see ADR for detailed description)."
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
         ],
         "label": "vote",
         "mutates": true,
@@ -927,6 +1115,7 @@
             },
             {
               "layout": {
+<<<<<<< HEAD
                 "leaf": {
                   "key": "0x00000000",
                   "ty": 6
@@ -951,6 +1140,20 @@
                 }
               },
               "name": "aggregated_second_vote"
+=======
+                "array": {
+                  "layout": {
+                    "leaf": {
+                      "key": "0x00000000",
+                      "ty": 0
+                    }
+                  },
+                  "len": 26,
+                  "offset": "0x00000000"
+                }
+              },
+              "name": "voting_result"
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             },
             {
               "layout": {
@@ -1075,6 +1278,7 @@
       "id": 6,
       "type": {
         "def": {
+<<<<<<< HEAD
           "sequence": {
             "type": 5
           }
@@ -1085,6 +1289,8 @@
       "id": 7,
       "type": {
         "def": {
+=======
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
           "variant": {
             "variants": [
               {
@@ -1099,7 +1305,11 @@
               {
                 "fields": [
                   {
+<<<<<<< HEAD
                     "type": 8
+=======
+                    "type": 7
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
                   }
                 ],
                 "index": 1,
@@ -1115,7 +1325,11 @@
           },
           {
             "name": "E",
+<<<<<<< HEAD
             "type": 8
+=======
+            "type": 7
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
           }
         ],
         "path": [
@@ -1124,7 +1338,11 @@
       }
     },
     {
+<<<<<<< HEAD
       "id": 8,
+=======
+      "id": 7,
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
       "type": {
         "def": {
           "variant": {
@@ -1143,7 +1361,11 @@
       }
     },
     {
+<<<<<<< HEAD
       "id": 9,
+=======
+      "id": 8,
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
       "type": {
         "def": {
           "primitive": "u16"
@@ -1151,7 +1373,11 @@
       }
     },
     {
+<<<<<<< HEAD
       "id": 10,
+=======
+      "id": 9,
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
       "type": {
         "def": {
           "primitive": "u128"
@@ -1159,7 +1385,11 @@
       }
     },
     {
+<<<<<<< HEAD
       "id": 11,
+=======
+      "id": 10,
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
       "type": {
         "def": {
           "array": {
@@ -1170,6 +1400,19 @@
       }
     },
     {
+<<<<<<< HEAD
+=======
+      "id": 11,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 5
+          }
+        }
+      }
+    },
+    {
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
       "id": 12,
       "type": {
         "def": {
@@ -1187,7 +1430,11 @@
               {
                 "fields": [
                   {
+<<<<<<< HEAD
                     "type": 8
+=======
+                    "type": 7
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
                   }
                 ],
                 "index": 1,
@@ -1203,7 +1450,11 @@
           },
           {
             "name": "E",
+<<<<<<< HEAD
             "type": 8
+=======
+            "type": 7
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
           }
         ],
         "path": [
@@ -1423,7 +1674,11 @@
               {
                 "fields": [
                   {
+<<<<<<< HEAD
                     "type": 6,
+=======
+                    "type": 11,
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
                     "typeName": "String"
                   }
                 ],
@@ -1449,7 +1704,11 @@
               {
                 "fields": [
                   {
+<<<<<<< HEAD
                     "type": 6,
+=======
+                    "type": 11,
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
                     "typeName": "String"
                   }
                 ],
@@ -1489,7 +1748,11 @@
               {
                 "fields": [
                   {
+<<<<<<< HEAD
                     "type": 10
+=======
+                    "type": 9
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
                   }
                 ],
                 "index": 1,
@@ -1501,7 +1764,11 @@
         "params": [
           {
             "name": "T",
+<<<<<<< HEAD
             "type": 10
+=======
+            "type": 9
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
           }
         ],
         "path": [
@@ -1518,7 +1785,11 @@
               {
                 "fields": [
                   {
+<<<<<<< HEAD
                     "type": 11
+=======
+                    "type": 10
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
                   }
                 ],
                 "index": 0,
@@ -1527,7 +1798,11 @@
               {
                 "fields": [
                   {
+<<<<<<< HEAD
                     "type": 8
+=======
+                    "type": 7
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
                   }
                 ],
                 "index": 1,
@@ -1539,11 +1814,19 @@
         "params": [
           {
             "name": "T",
+<<<<<<< HEAD
             "type": 11
           },
           {
             "name": "E",
             "type": 8
+=======
+            "type": 10
+          },
+          {
+            "name": "E",
+            "type": 7
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
           }
         ],
         "path": [
@@ -1569,7 +1852,11 @@
               {
                 "fields": [
                   {
+<<<<<<< HEAD
                     "type": 8
+=======
+                    "type": 7
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
                   }
                 ],
                 "index": 1,
@@ -1585,7 +1872,11 @@
           },
           {
             "name": "E",
+<<<<<<< HEAD
             "type": 8
+=======
+            "type": 7
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
           }
         ],
         "path": [
@@ -1631,7 +1922,11 @@
       "type": {
         "def": {
           "sequence": {
+<<<<<<< HEAD
             "type": 11
+=======
+            "type": 10
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
           }
         }
       }
@@ -1654,7 +1949,11 @@
               {
                 "fields": [
                   {
+<<<<<<< HEAD
                     "type": 8
+=======
+                    "type": 7
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
                   }
                 ],
                 "index": 1,
@@ -1670,7 +1969,11 @@
           },
           {
             "name": "E",
+<<<<<<< HEAD
             "type": 8
+=======
+            "type": 7
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
           }
         ],
         "path": [
@@ -1741,7 +2044,11 @@
               {
                 "fields": [
                   {
+<<<<<<< HEAD
                     "type": 8
+=======
+                    "type": 7
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
                   }
                 ],
                 "index": 1,
@@ -1757,7 +2064,11 @@
           },
           {
             "name": "E",
+<<<<<<< HEAD
             "type": 8
+=======
+            "type": 7
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
           }
         ],
         "path": [
@@ -1803,8 +2114,13 @@
       "type": {
         "def": {
           "array": {
+<<<<<<< HEAD
             "len": 48,
             "type": 5
+=======
+            "len": 26,
+            "type": 0
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
           }
         }
       }
@@ -1818,7 +2134,11 @@
               {
                 "fields": [
                   {
+<<<<<<< HEAD
                     "type": 31
+=======
+                    "type": 29
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
                   }
                 ],
                 "index": 0,
@@ -1827,7 +2147,11 @@
               {
                 "fields": [
                   {
+<<<<<<< HEAD
                     "type": 8
+=======
+                    "type": 7
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
                   }
                 ],
                 "index": 1,
@@ -1839,17 +2163,26 @@
         "params": [
           {
             "name": "T",
+<<<<<<< HEAD
             "type": 31
           },
           {
             "name": "E",
             "type": 8
+=======
+            "type": 29
+          },
+          {
+            "name": "E",
+            "type": 7
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
           }
         ],
         "path": [
           "Result"
         ]
       }
+<<<<<<< HEAD
     },
     {
       "id": 31,
@@ -1861,6 +2194,8 @@
           }
         }
       }
+=======
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
     }
   ],
   "version": "4"

@@ -3,8 +3,12 @@ mod shielder {
     use core::ops::Not;
 
     use ark_bls12_381::Bls12_381;
+<<<<<<< HEAD
     use ark_ec::{pairing::Pairing, CurveGroup};
     use ark_ff::fields::field_hashers::{DefaultFieldHasher, HashToField};
+=======
+    use ark_ec::CurveGroup;
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
     use ark_serialize::{CanonicalDeserialize, CanonicalSerialize};
     use ark_std::cfg_into_iter;
     use baby_liminal_extension::BabyLiminalExtension;
@@ -36,7 +40,10 @@ mod shielder {
     };
     use saver::encryption::Ciphertext;
     use scale::{Decode, Encode};
+<<<<<<< HEAD
     use sha2::Sha256;
+=======
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 
     use crate::{
         array_to_tuple, error::ShielderError, tuple_to_array, AggregatedVote, EncryptedVote,
@@ -112,7 +119,10 @@ mod shielder {
     /// the next one is their uncle and so forth. You can recreate shape of this path knowing leaf
     /// index.
     pub type MerklePath = Vec<MerkleHash>;
+<<<<<<< HEAD
     pub type VoteBases = Vec<[u8; 48]>;
+=======
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 
     #[ink(storage)]
     #[derive(Default, Storage)]
@@ -135,11 +145,15 @@ mod shielder {
         registered_tokens: Mapping<TokenId, AccountId>,
 
         /// Aggregated voting result.
+<<<<<<< HEAD
         aggregated_x_r: AggregatedVote,
         /// Aggregated voting result.
         aggregated_first_vote: AggregatedVote,
         /// Aggregated voting result.
         aggregated_second_vote: AggregatedVote,
+=======
+        voting_result: AggregatedVote,
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 
         /// `Openbrush::Ownable` data.
         #[storage_field]
@@ -399,7 +413,11 @@ mod shielder {
             Ok(())
         }
 
+<<<<<<< HEAD
         /// Trigger vote action (see ADR for detailed description).
+=======
+        /// Trigger withdraw action (see ADR for detailed description).
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
         #[allow(clippy::too_many_arguments)]
         #[ink(message, selector = 13)]
         pub fn vote(
@@ -407,14 +425,19 @@ mod shielder {
             token_id: TokenId,
             nullifier: Nullifier,
             token_amount: TokenAmount,
+<<<<<<< HEAD
             encrypted_x_r: EncryptedVote,
             encrypted_first_vote: EncryptedVote,
             encrypted_second_vote: EncryptedVote,
+=======
+            encrypted_vote: EncryptedVote,
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             merkle_root: MerkleRoot,
             proof: Vec<u8>,
         ) -> Result<()> {
             self.verify_merkle_root(merkle_root)?;
             self.verify_nullifier(nullifier)?;
+<<<<<<< HEAD
 
             let hasher = <DefaultFieldHasher<Sha256> as HashToField<CircuitField>>::new(&[1, 2, 3]);
 
@@ -441,10 +464,21 @@ mod shielder {
                 merkle_root,
                 proof,
             )?;
+=======
+            //self.verify_vote(
+            //    token_id,
+            //    nullifier,
+            //    token_amount,
+            //    encrypted_vote,
+            //    merkle_root,
+            //    proof,
+            //)?;
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 
             self.merkle_roots.insert(self.current_root(), &());
             self.nullifiers.insert(nullifier, &());
 
+<<<<<<< HEAD
             if self.aggregated_x_r.is_empty() {
                 self.aggregated_x_r = encrypted_x_r.into();
                 self.aggregated_first_vote = encrypted_first_vote.into();
@@ -456,6 +490,9 @@ mod shielder {
                     &encrypted_second_vote,
                 )?;
             }
+=======
+            //self.update_vote_result(encrypted_vote);
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 
             Self::emit_event(
                 self.env(),
@@ -470,12 +507,17 @@ mod shielder {
 
         /// Read the current root of the Merkle tree with notes.
         #[ink(message, selector = 14)]
+<<<<<<< HEAD
         pub fn current_voting_result(&self) -> [u8; 144] {
             let mut result = vec![];
             result.append(&mut self.aggregated_x_r.clone());
             result.append(&mut self.aggregated_first_vote.clone());
             result.append(&mut self.aggregated_second_vote.clone());
             result.try_into().unwrap()
+=======
+        pub fn current_voting_result(&self) -> EncryptedVote {
+            self.voting_result
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
         }
     }
 
@@ -599,6 +641,7 @@ mod shielder {
             self.max_leaves.trailing_zeros() as u8
         }
 
+<<<<<<< HEAD
         fn vote_bases(&self) -> VoteBases {
             [
                 [
@@ -623,6 +666,10 @@ mod shielder {
                 ],
             ]
             .to_vec()
+=======
+        fn vote_bases(&self) -> MerklePath {
+            [[0, 0, 0, 0], [0, 0, 0, 0]].to_vec()
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
         }
 
         #[allow(clippy::too_many_arguments)]
@@ -739,14 +786,22 @@ mod shielder {
             }
         }
 
+<<<<<<< HEAD
         #[allow(clippy::too_many_arguments)]
+=======
+        /*#[allow(clippy::too_many_arguments)]
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
         fn verify_vote(
             &self,
             token_id: TokenId,
             nullifier: Nullifier,
             token_amount: TokenAmount,
+<<<<<<< HEAD
             first_vote_hash: [u64; 4],
             second_vote_hash: [u64; 4],
+=======
+            encrypted_vote: EncryptedVote,
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             merkle_root: MerkleRoot,
             proof: Vec<u8>,
         ) -> Result<()> {
@@ -756,12 +811,17 @@ mod shielder {
                 token_id,
                 nullifier,
                 token_amount,
+<<<<<<< HEAD
                 first_vote_hash,
                 second_vote_hash,
+=======
+                encrypted_vote,
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
                 merkle_root,
             )
             .serialize_public_input();
 
+<<<<<<< HEAD
             //self.env().extension().verify(
             //    VOTE_VK_IDENTIFIER,
             //    proof,
@@ -822,6 +882,55 @@ mod shielder {
                 .serialize_compressed(&mut self.aggregated_second_vote[..])
                 .expect("succesfully serialize");
 
+=======
+            self.env().extension().verify(
+                VOTE_VK_IDENTIFIER,
+                proof,
+                Self::serialize::<Vec<CircuitField>>(input.as_ref()),
+                SYSTEM,
+            )?;
+
+            Ok(())
+        }*/
+
+        fn convert(source: &[u64; 26]) -> [u8; 208] {
+            let mut dest = [0u8; 208];
+            for (dest_c, source_e) in dest.chunks_exact_mut(8).zip(source.iter()) {
+                dest_c.copy_from_slice(&source_e.to_le_bytes())
+            }
+            dest
+        }
+
+        fn update_vote_result(&mut self, encrypted_vote: EncryptedVote) -> Result<()> {
+            let current_result: Ciphertext<Bls12_381> =
+                CanonicalDeserialize::deserialize_compressed(
+                    Self::convert(&self.voting_result).as_slice(),
+                )
+                .unwrap();
+
+            let encrypted_vote: Ciphertext<Bls12_381> =
+                CanonicalDeserialize::deserialize_compressed(
+                    Self::convert(&encrypted_vote).as_slice(),
+                )
+                .unwrap();
+
+            let ciphertext = Ciphertext::<Bls12_381> {
+                X_r: (current_result.X_r + encrypted_vote.X_r).into_affine(),
+                enc_chunks: cfg_into_iter!(current_result.enc_chunks)
+                    .zip(cfg_into_iter!(encrypted_vote.enc_chunks))
+                    .map(|(a, b)| (a + b).into_affine())
+                    .collect(),
+                commitment: (current_result.commitment + encrypted_vote.commitment).into_affine(),
+            };
+
+            let mut updated_vote = [0u8; 26];
+            ciphertext.serialize_compressed(updated_vote.as_mut_slice());
+
+            for i in 0..26 {
+                self.voting_result[i] =
+                    u64::from_le_bytes(updated_vote[8 * i..8 * (i + 1)].try_into().unwrap());
+            }
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             Ok(())
         }
 

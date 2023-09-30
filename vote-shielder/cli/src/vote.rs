@@ -2,9 +2,14 @@ use std::path::Path;
 
 use aleph_client::SignedConnection;
 use anyhow::Result;
+<<<<<<< HEAD
 use ark_ff::field_hashers::HashToField;
 use liminal_ark_relations::shielder::{
     types::{FrontendEncryptedVote, FrontendVote, FrontendVoteRandomness},
+=======
+use liminal_ark_relations::shielder::{
+    types::{FrontendEncryptedVote, FrontendTokenAmount, FrontendVote, FrontendVoteRandomness},
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
     VoteRelationWithFullInput,
 };
 
@@ -20,9 +25,12 @@ pub async fn vote(
     deposit: Deposit,
     first_vote_hash: FrontendEncryptedVote,
     second_vote_hash: FrontendEncryptedVote,
+<<<<<<< HEAD
     encrypted_x_r: [u8; 48],
     encrypted_first_vote: [u8; 48],
     encrypted_second_vote: [u8; 48],
+=======
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
     first_vote: FrontendVote,
     second_vote: FrontendVote,
     vote_randomness: FrontendVoteRandomness,
@@ -70,9 +78,13 @@ pub async fn vote(
             token_id,
             nullifier,
             token_amount,
+<<<<<<< HEAD
             encrypted_x_r,
             encrypted_first_vote,
             encrypted_second_vote,
+=======
+            encrypted_vote,
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             merkle_root,
             &proof,
         )

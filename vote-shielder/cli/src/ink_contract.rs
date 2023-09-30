@@ -127,8 +127,13 @@ impl Instance {
             data
         };
         let code_hash = [
+<<<<<<< HEAD
             13, 77, 133, 33, 47, 226, 186, 45, 164, 106, 12, 166, 105, 112, 52, 145, 61, 26, 203,
             215, 86, 50, 187, 44, 144, 23, 206, 187, 134, 172, 71, 150,
+=======
+            147, 235, 61, 186, 178, 110, 205, 104, 158, 86, 65, 35, 172, 133, 253, 90, 250, 128,
+            225, 225, 205, 101, 131, 218, 124, 140, 108, 114, 2, 153, 128, 42,
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
         ];
         let account_id = conn.instantiate(code_hash, salt, data).await?;
         Ok(Self { account_id })
@@ -335,7 +340,11 @@ impl Instance {
         conn.exec(self.account_id, data).await
     }
 
+<<<<<<< HEAD
     ///  Trigger vote action (see ADR for detailed description).
+=======
+    ///  Trigger withdraw action (see ADR for detailed description).
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
     #[allow(dead_code, clippy::too_many_arguments)]
     pub async fn vote<TxInfo, E, C: ink_wrapper_types::SignedConnection<TxInfo, E>>(
         &self,
@@ -343,9 +352,13 @@ impl Instance {
         token_id: u16,
         nullifier: [u64; 4],
         token_amount: u128,
+<<<<<<< HEAD
         encrypted_x_r: [u8; 48],
         encrypted_first_vote: [u8; 48],
         encrypted_second_vote: [u8; 48],
+=======
+        encrypted_vote: [u64; 26],
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
         merkle_root: [u64; 4],
         proof: Vec<u8>,
     ) -> Result<TxInfo, E> {
@@ -354,9 +367,13 @@ impl Instance {
             token_id.encode_to(&mut data);
             nullifier.encode_to(&mut data);
             token_amount.encode_to(&mut data);
+<<<<<<< HEAD
             encrypted_x_r.encode_to(&mut data);
             encrypted_first_vote.encode_to(&mut data);
             encrypted_second_vote.encode_to(&mut data);
+=======
+            encrypted_vote.encode_to(&mut data);
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             merkle_root.encode_to(&mut data);
             proof.encode_to(&mut data);
             data
@@ -369,7 +386,11 @@ impl Instance {
     pub async fn current_voting_result<TxInfo, E, C: ink_wrapper_types::Connection<TxInfo, E>>(
         &self,
         conn: &C,
+<<<<<<< HEAD
     ) -> Result<Result<[u8; 144], ink_wrapper_types::InkLangError>, E> {
+=======
+    ) -> Result<Result<[u64; 26], ink_wrapper_types::InkLangError>, E> {
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
         let data = vec![0, 0, 0, 14];
         conn.read(self.account_id, data).await
     }

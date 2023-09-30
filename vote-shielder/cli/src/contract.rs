@@ -10,8 +10,13 @@ use aleph_client::{
 use anyhow::{anyhow, Result};
 use ink_primitives;
 use liminal_ark_relations::shielder::types::{
+<<<<<<< HEAD
     FrontendMerklePath, FrontendMerkleRoot, FrontendNote, FrontendNullifier, FrontendTokenAmount,
     FrontendTokenId,
+=======
+    FrontendEncryptedVote, FrontendMerklePath, FrontendMerkleRoot, FrontendNote, FrontendNullifier,
+    FrontendTokenAmount, FrontendTokenId,
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 };
 use tracing::info;
 
@@ -50,9 +55,13 @@ impl Shielder {
         token_id: FrontendTokenId,
         nullifier: FrontendNullifier,
         token_amount: FrontendTokenAmount,
+<<<<<<< HEAD
         encrypted_x_r: [u8; 48],
         encrypted_first_vote: [u8; 48],
         encrypted_second_vote: [u8; 48],
+=======
+        encrypted_vote: [u64; 26],
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
         merkle_root: FrontendMerkleRoot,
         proof: &[u8],
     ) -> Result<u32> {
@@ -64,15 +73,23 @@ impl Shielder {
                 token_id,
                 nullifier,
                 token_amount,
+<<<<<<< HEAD
                 encrypted_x_r,
                 encrypted_first_vote,
                 encrypted_second_vote,
+=======
+                encrypted_vote,
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
                 merkle_root,
                 proof.to_vec(),
             )
             .await?;
 
+<<<<<<< HEAD
         let _event = self
+=======
+        let event = self
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
             .get_event(connection.as_connection(), "Voted", tx_info)
             .await?;
 
@@ -227,7 +244,11 @@ impl Shielder {
     }
 
     /// Fetch the current merkle root.
+<<<<<<< HEAD
     pub async fn get_voting_result(&self, connection: &SignedConnection) -> [u16; 144] {
+=======
+    pub async fn get_voting_result(&self, connection: &SignedConnection) -> [u64; 26] {
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
         self.contract
             .contract_read0(connection, "current_voting_result")
             .await

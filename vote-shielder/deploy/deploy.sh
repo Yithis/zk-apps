@@ -149,9 +149,9 @@ docker_ink_dev() {
     -v "${PWD}":/code \
     -v ~/.cargo/git:/usr/local/cargo/git \
     -v ~/.cargo/registry:/usr/local/cargo/registry \
-    -v ~/master_repos/aleph-node:/usr/local/aleph-node \
-    -v ~/master_repos/crypto:/usr/local/crypto \
-    -v ~/master_repos/poseidon377:/usr/local/poseidon377 \
+    -v ~/paper/aleph-node:/usr/local/aleph-node \
+    -v ~/paper/crypto:/usr/local/crypto \
+    -v ~/paper/poseidon377:/usr/local/poseidon377 \
     --network host \
     --entrypoint /bin/sh \
     "${INK_DEV_IMAGE}" \

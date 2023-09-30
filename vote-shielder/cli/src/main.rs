@@ -3,6 +3,7 @@ use std::{env, io, ops::Add, str::FromStr};
 use aleph_client::{account_from_keypair, keypair_from_string, Connection, SignedConnection};
 use anyhow::{anyhow, Result};
 use ark_bls12_381::{Bls12_381, Fr};
+<<<<<<< HEAD
 use ark_ec::{
     pairing::{Pairing, PairingOutput},
     AffineRepr, CurveGroup,
@@ -16,13 +17,28 @@ use inquire::{CustomType, Password, Select};
 use liminal_ark_relations::{environment::CircuitField, shielder::types::FrontendTokenAmount};
 use rand::{rngs::StdRng, SeedableRng};
 use saver::prelude::PreparedDecryptionKey;
+=======
+use ark_ec::{AffineRepr, CurveGroup};
+use ark_ff::{BigInteger, BigInteger256, PrimeField};
+use ark_serialize::CanonicalSerialize;
+use ark_std::{cfg_into_iter, One, UniformRand};
+use clap::Parser;
+use config::{DepositCmd, LoggingFormat, MergeCmd, VoteCmd, WithdrawCmd};
+use inquire::{CustomType, Password, Select};
+use liminal_ark_relations::shielder::types::FrontendTokenAmount;
+use rand::{rngs::StdRng, SeedableRng};
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 use shielder::{
     app_state::AppState, contract::Shielder, deposit::*, merge::*, vote::*, withdraw::*,
 };
 use tracing::info;
 use tracing_subscriber::EnvFilter;
 use ContractInteractionCommand::{Deposit, Merge, Vote, Withdraw};
+<<<<<<< HEAD
 use EncryptionCommand::Decrypt;
+=======
+use EncryptionCommand::{Decrypt, Encrypt};
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 use StateReadCommand::{PrintState, ShowAssets};
 use StateWriteCommand::{SetContractAddress, SetNode};
 
@@ -93,6 +109,7 @@ async fn perform_contract_action(
     Ok(())
 }
 
+<<<<<<< HEAD
 fn solve_discrete_log(
     chunk_max_val: u16,
     g_i_v_i: PairingOutput<Bls12_381>,
@@ -175,6 +192,152 @@ async fn perform_encryption_action(app_state: &AppState, command: EncryptionComm
                 decrypted_chunks.push(solve_discrete_log(chunk_max_val as u16, g_i_v_i, p)?);
             }
             info!(?decrypted_chunks);
+=======
+fn perform_encryption_action(app_state: &AppState, command: EncryptionCommand) -> Result<()> {
+    match command {
+        Encrypt { message } => {
+            let mut rng = StdRng::seed_from_u64(0u64);
+            //let mut rng1 = StdRng::seed_from_u64(1u64);
+            let message = ark_bls12_381::Fr::from(4u64);
+            let message1 = ark_bls12_381::Fr::from(u64::from_le_bytes([6, 0, 0, 0, 0, 0, 0, 0]));
+            let chunk_bit_size = 16;
+            let enc_gens = saver::setup::EncryptionGens::<Bls12_381>::new_using_rng(&mut rng);
+            //let enc_gens1 = saver::setup::EncryptionGens::<Bls12_381>::new_using_rng(&mut rng1);
+            let (snark_srs, _sk, ek, _dk) =
+                saver::setup::setup_for_groth16(&mut rng, chunk_bit_size, &enc_gens).unwrap();
+            //let (snark_srs, _sk, ek, _dk) =
+            //    saver::setup::setup_for_groth16(&mut rng1, chunk_bit_size, &enc_gens1).unwrap();
+            let gs = saver::saver_groth16::get_gs_for_encryption(&snark_srs.pk.vk);
+            let result = saver::encryption::Encryption::<Bls12_381>::encrypt_given_snark_vk(
+                &mut rng,
+                &message,
+                &ek,
+                &snark_srs.pk.vk,
+                chunk_bit_size,
+            )
+            .unwrap();
+            let dec = saver::utils::decompose(&message, chunk_bit_size).unwrap();
+
+            let mut m = cfg_into_iter!(dec)
+                .map(|m_i| <ark_bls12_381::fr::Fr as PrimeField>::BigInt::from(m_i as u64))
+                .collect::<Vec<_>>();
+
+            println!("X_2: {:?}", ek.X[1]);
+            println!("r: {:?}", result.1.into_bigint());
+            println!("G_2: {:?}", gs[1]);
+
+            let q = ek.X[0]
+                .mul_bigint(result.1.into_bigint())
+                .add(gs[0].mul_bigint(BigInteger256::from(4u64)));
+            let r = ek.X[1]
+                .mul_bigint(result.1.into_bigint())
+                .add(gs[1].mul_bigint(BigInteger256::from(6u64)));
+            info!(
+                "{}",
+                ek.X[0]
+                    .mul_bigint(result.1.into_bigint())
+                    .add(gs[0].mul_bigint(BigInteger256::from(4u64)))
+            );
+            info!(
+                "{}",
+                ek.X[1]
+                    .mul_bigint(result.1.into_bigint())
+                    .add(gs[1].mul_bigint(m[1]))
+                    .compressed_size()
+            );
+            info!(
+                "{}",
+                ek.X[0]
+                    .mul_bigint(result.1.into_bigint())
+                    .add(gs[0].mul_bigint(m[0]))
+                    .eq(&result.0.enc_chunks[1])
+            );
+            let mut hash = [0u8; 48];
+            q.serialize_compressed(&mut hash[..]);
+            info!("q {:?}", hash);
+
+            let hasher =
+                <DefaultFieldHasher<Sha256> as HashToField<ark_bls12_381::Fr>>::new(&[1, 2, 3]);
+            let field_elements: Vec<ark_bls12_381::Fr> = hasher.hash_to_field(&hash, 1);
+            info!("{:?}", field_elements[0]);
+            let field_elements = field_elements[0].into_bigint();
+            info!("{:?}", field_elements.to_bytes_le());
+            r.serialize_compressed(&mut hash[..]);
+            info!("r {:?}", hash);
+
+            let field_elements: Vec<ark_bls12_381::Fr> = hasher.hash_to_field(&hash, 1);
+            info!("{:?}", field_elements[0]);
+            let field_elements = field_elements[0].into_bigint();
+
+            info!("{:?}", field_elements.to_bytes_le());
+
+            let mut x = [0u8; 48];
+            ek.X[0].serialize_compressed(&mut x[..]);
+            info!("{:?}", x);
+            gs[0].serialize_compressed(&mut x[..]);
+            info!("{:?}", x);
+            ek.X[1].serialize_compressed(&mut x[..]);
+            info!("{:?}", x);
+            gs[1].serialize_compressed(&mut x[..]);
+            info!("{:?}", x);
+            result.1.serialize_compressed(&mut x[..]);
+            info!("{:?}", x);
+
+            //info!("{}", std::mem::size_of_val(&result));
+            //info!("{}", std::mem::size_of_val(&ek.X[0]));
+            //info!("{}", std::mem::size_of_val(&gs[0]));
+            //info!("{}", std::mem::size_of_val(&result.enc_chunks[0]));
+            //info!(
+            //    "{}",
+            //    std::mem::size_of_val(&result.enc_chunks[0].compressed_size())
+            //);
+            //info!(
+            //    "{}",
+            //    std::mem::size_of_val(&result.enc_chunks[1].compressed_size())
+            //);
+            //info!(?result);
+        }
+        Decrypt { ciphertext } => {
+            let mut rng = StdRng::seed_from_u64(0u64);
+            let message = Fr::one();
+            let chunk_bit_size = 8;
+            let enc_gens = saver::setup::EncryptionGens::<Bls12_381>::new_using_rng(&mut rng);
+            let (snark_srs, sk, ek, dk) =
+                saver::setup::setup_for_groth16(&mut rng, chunk_bit_size, &enc_gens).unwrap();
+            let first = saver::encryption::Encryption::<Bls12_381>::encrypt_given_snark_vk(
+                &mut rng,
+                &message,
+                &ek,
+                &snark_srs.pk.vk,
+                chunk_bit_size,
+            )
+            .unwrap()
+            .0;
+            let second = saver::encryption::Encryption::<Bls12_381>::encrypt_given_snark_vk(
+                &mut rng,
+                &message,
+                &ek,
+                &snark_srs.pk.vk,
+                chunk_bit_size,
+            )
+            .unwrap()
+            .0;
+            let ciphertext = saver::encryption::Ciphertext::<_> {
+                X_r: (first.X_r + second.X_r).into_affine(),
+                enc_chunks: cfg_into_iter!(first.enc_chunks)
+                    .zip(cfg_into_iter!(second.enc_chunks))
+                    .map(|(a, b)| (a + b).into_affine())
+                    .collect(),
+                commitment: (first.commitment + second.commitment).into_affine(),
+            };
+            let result = ciphertext.decrypt_given_groth16_vk(
+                &sk,
+                dk.clone(),
+                &snark_srs.pk.vk,
+                chunk_bit_size,
+            );
+            info!(?result)
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
         }
     };
     Ok(())
@@ -205,7 +368,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             perform_contract_action(&mut app_state, cmd).await?;
             save_app_state(&app_state, &cli_config.state_file, &password)?;
         }
+<<<<<<< HEAD
         Encryption(cmd) => perform_encryption_action(&app_state, cmd).await?,
+=======
+        Encryption(cmd) => perform_encryption_action(&app_state, cmd)?,
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
     }
 
     Ok(())
@@ -314,6 +481,7 @@ async fn do_vote(
     let connection = SignedConnection::from_connection(connection, signer);
 
     let mut rng = StdRng::seed_from_u64(0u64);
+<<<<<<< HEAD
 
     let message = vec![first_vote, second_vote];
 
@@ -415,6 +583,50 @@ async fn do_vote(
         app_state,
     )
     .await
+=======
+    let message = Fr::from_str(&(first_vote.to_string() + &second_vote.to_string())).unwrap();
+    let chunk_bit_size = 8;
+    let enc_gens = saver::setup::EncryptionGens::<Bls12_381>::new_using_rng(&mut rng);
+    let (snark_srs, _sk, ek, _dk) =
+        saver::setup::setup_for_groth16(&mut rng, chunk_bit_size, &enc_gens).unwrap();
+    let first_vote_hash = saver::encryption::Encryption::<Bls12_381>::encrypt_given_snark_vk(
+        &mut rng,
+        &message,
+        &ek,
+        &snark_srs.pk.vk,
+        chunk_bit_size,
+    );
+    let second_vote_hash = saver::encryption::Encryption::<Bls12_381>::encrypt_given_snark_vk(
+        &mut rng,
+        &message,
+        &ek,
+        &snark_srs.pk.vk,
+        chunk_bit_size,
+    );
+    let mut hash = [0u8; 48];
+    let hasher = <DefaultFieldHasher<Sha256> as HashToField<CircuitField>>::new(&[1, 2, 3]);
+
+    let mut encrypted_vote = [0u64; 4];
+    let mut temp = [0u8; 32];
+    encrypted_vote.serialize_compressed(temp.as_mut_slice());
+
+    for i in 0..4 {
+        encrypted_vote[i] = u64::from_le_bytes(temp[8 * i..8 * (i + 1)].try_into().unwrap());
+    }
+    Ok(())
+
+    //vote(
+    //    &contract,
+    //    &connection,
+    //    deposit,
+    //    encrypted_vote,
+    //    first_vote,
+    //    second_vote,
+    //    &vote_key_file,
+    //    app_state,
+    //)
+    //.await
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 }
 
 async fn do_merge(

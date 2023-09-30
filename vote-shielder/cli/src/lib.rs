@@ -13,6 +13,7 @@ pub type DepositId = u16;
 pub type LeafIdx = u32;
 
 pub const MERKLE_PATH_MAX_LEN: u8 = 16;
+<<<<<<< HEAD
 pub const VOTE_BASES: [[u8; 48]; 4] = [
     [
         131, 243, 22, 251, 27, 15, 154, 154, 252, 137, 52, 42, 231, 183, 121, 207, 68, 95, 68, 69,
@@ -35,6 +36,9 @@ pub const VOTE_BASES: [[u8; 48]; 4] = [
         236, 214, 72, 12, 34, 69, 66, 151, 223, 11,
     ],
 ];
+=======
+pub const VOTE_BASES: [[u64; 4]; 2] = [[2, 0, 0, 0], [3, 0, 0, 0]];
+>>>>>>> 2fb01f68235bee2c2fad8769cc8239665862ad4b
 
 pub mod app_state;
 pub mod contract;
