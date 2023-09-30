@@ -7,7 +7,7 @@ E2E_TEST_CONTEXT=${E2E_TEST:-}
 
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 
-export NODE_IMAGE="public.ecr.aws/p6e8q1z1/aleph-node-liminal:d93048e"
+export NODE_IMAGE="aleph-node:latest"
 export CLIAIN_IMAGE="public.ecr.aws/p6e8q1z1/cliain-liminal:d93048e"
 export INK_DEV_IMAGE="public.ecr.aws/p6e8q1z1/ink-dev:1.1.0"
 
@@ -130,6 +130,7 @@ generate_keys() {
   generate_relation_keys "deposit-and-merge" "--max-path-len ${MERKLE_TREE_HEIGHT}"
   generate_relation_keys "merge" "--max-path-len ${MERKLE_TREE_HEIGHT}"
   generate_relation_keys "withdraw" "--max-path-len ${MERKLE_TREE_HEIGHT}"
+  generate_relation_keys "vote" "--max-path-len ${MERKLE_TREE_HEIGHT}"
 }
 
 move_keys() {
@@ -137,6 +138,7 @@ move_keys() {
   mv docker/keys/deposit_and_merge.groth16.pk.bytes ../cli/deposit_and_merge.pk.bytes
   mv docker/keys/merge.groth16.pk.bytes ../cli/merge.pk.bytes
   mv docker/keys/withdraw.groth16.pk.bytes ../cli/withdraw.pk.bytes
+  mv docker/keys/vote.groth16.pk.bytes ../cli/vote.pk.bytes
 
   log_progress "✅ Proving keys were made available to CLI"
 }
@@ -173,7 +175,7 @@ contract_instantiate() {
 }
 
 contract_call() {
-  docker_ink_dev "cargo contract call --quiet --skip-confirm --url ${NODE} ${1}"
+  docker_ink_dev "cargo contract call --skip-dry-run --gas 10000000000 --proof-size 10000000000 --skip-confirm --url ${NODE} ${1}"
 }
 
 deploy_token_contracts() {
@@ -241,22 +243,32 @@ store_contract_addresses() {
 }
 
 register_vk() {
+    log_progress "A"
+
   DEPOSIT_VK_BYTES="0x$(xxd -ps <"${SCRIPT_DIR}"/docker/keys/deposit.groth16.vk.bytes | tr -d '\n')"
   DEPOSIT_MERGE_VK_BYTES="0x$(xxd -ps <"${SCRIPT_DIR}"/docker/keys/deposit_and_merge.groth16.vk.bytes | tr -d '\n')"
   MERGE_VK_BYTES="0x$(xxd -ps <"${SCRIPT_DIR}"/docker/keys/merge.groth16.vk.bytes | tr -d '\n')"
   WITHDRAW_VK_BYTES="0x$(xxd -ps <"${SCRIPT_DIR}"/docker/keys/withdraw.groth16.vk.bytes | tr -d '\n')"
+  VOTE_VK_BYTES="0x$(xxd -ps <"${SCRIPT_DIR}"/docker/keys/vote.groth16.vk.bytes | tr -d '\n')"
+    log_progress "B"
 
   pushd $SCRIPT_DIR/../contract
+    log_progress "C"
 
   contract_call "--contract  ${SHIELDER_ADDRESS} --message register_vk --args Deposit         ${DEPOSIT_VK_BYTES}       --suri ${ADMIN}" 1>/dev/null
+      log_progress "D"
+
   contract_call "--contract  ${SHIELDER_ADDRESS} --message register_vk --args DepositAndMerge ${DEPOSIT_MERGE_VK_BYTES} --suri ${ADMIN}" 1>/dev/null
   contract_call "--contract  ${SHIELDER_ADDRESS} --message register_vk --args Merge           ${MERGE_VK_BYTES}         --suri ${ADMIN}" 1>/dev/null
   contract_call "--contract  ${SHIELDER_ADDRESS} --message register_vk --args Withdraw        ${WITHDRAW_VK_BYTES}      --suri ${ADMIN}" 1>/dev/null
+  contract_call "--contract  ${SHIELDER_ADDRESS} --message register_vk --args Vote            ${VOTE_VK_BYTES}          --suri ${ADMIN}" 1>/dev/null
+    log_progress "D"
 
   popd
 }
 
 register_tokens() {
+
   cd "${SCRIPT_DIR}"/../contract/
   contract_call "--contract ${SHIELDER_ADDRESS} --message register_new_token --args 0 ${TOKEN_A_ADDRESS} --suri ${ADMIN}" 1>/dev/null
   contract_call "--contract ${SHIELDER_ADDRESS} --message register_new_token --args 1 ${TOKEN_B_ADDRESS} --suri ${ADMIN}" 1>/dev/null

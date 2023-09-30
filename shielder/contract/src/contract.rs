@@ -143,7 +143,7 @@ mod shielder {
 
         /// Trigger deposit action (see ADR for detailed description).
         #[ink(message, selector = 1)]
-        pub fn deposit(
+        pub fn vote(
             &mut self,
             token_id: TokenId,
             value: TokenAmount,

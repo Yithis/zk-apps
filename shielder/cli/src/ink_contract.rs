@@ -54,6 +54,38 @@ pub enum Relation {
     Withdraw(),
 }
 
+pub mod event {
+    #[allow(dead_code, clippy::large_enum_variant)]
+    #[derive(Debug, Clone, PartialEq, Eq, scale::Encode, scale::Decode)]
+    pub enum Event {
+        Deposited {
+            token_id: u16,
+            value: u128,
+            leaf_idx: u32,
+            note: [u64; 4],
+        },
+
+        Withdrawn {
+            token_id: u16,
+            value: u128,
+            recipient: ink_primitives::AccountId,
+            leaf_idx: u32,
+            new_note: [u64; 4],
+        },
+
+        TokenRegistered {
+            token_id: u16,
+            token_address: ink_primitives::AccountId,
+        },
+
+        Merged {
+            token_id: u16,
+            leaf_idx: u32,
+            new_note: [u64; 4],
+        },
+    }
+}
+
 #[derive(Debug, Clone, Copy)]
 pub struct Instance {
     account_id: ink_primitives::AccountId,
@@ -69,6 +101,10 @@ impl From<Instance> for ink_primitives::AccountId {
     fn from(instance: Instance) -> Self {
         instance.account_id
     }
+}
+
+impl ink_wrapper_types::EventSource for Instance {
+    type Event = event::Event;
 }
 
 impl Instance {
@@ -94,7 +130,7 @@ impl Instance {
 
     ///  Trigger deposit action (see ADR for detailed description).
     #[allow(dead_code, clippy::too_many_arguments)]
-    pub async fn deposit<TxInfo, E, C: ink_wrapper_types::SignedConnection<TxInfo, E>>(
+    pub async fn vote<TxInfo, E, C: ink_wrapper_types::SignedConnection<TxInfo, E>>(
         &self,
         conn: &C,
         token_id: u16,
@@ -144,21 +180,21 @@ impl Instance {
 
     ///  Read the current root of the Merkle tree with notes.
     #[allow(dead_code, clippy::too_many_arguments)]
-    pub async fn current_merkle_root<E, C: ink_wrapper_types::Connection<E>>(
+    pub async fn current_merkle_root<TxInfo, E, C: ink_wrapper_types::Connection<TxInfo, E>>(
         &self,
         conn: &C,
-    ) -> Result<Result<[u64; 4], ink_primitives::LangError>, E> {
+    ) -> Result<Result<[u64; 4], ink_wrapper_types::InkLangError>, E> {
         let data = vec![0, 0, 0, 3];
         conn.read(self.account_id, data).await
     }
 
     ///  Retrieve the path from the leaf to the root. `None` if the leaf does not exist.
     #[allow(dead_code, clippy::too_many_arguments)]
-    pub async fn merkle_path<E, C: ink_wrapper_types::Connection<E>>(
+    pub async fn merkle_path<TxInfo, E, C: ink_wrapper_types::Connection<TxInfo, E>>(
         &self,
         conn: &C,
         leaf_idx: u32,
-    ) -> Result<Result<Option<Vec<[u64; 4]>>, ink_primitives::LangError>, E> {
+    ) -> Result<Result<Option<Vec<[u64; 4]>>, ink_wrapper_types::InkLangError>, E> {
         let data = {
             let mut data = vec![0, 0, 0, 4];
             leaf_idx.encode_to(&mut data);
@@ -169,11 +205,11 @@ impl Instance {
 
     ///  Check whether `nullifier` has been already used.
     #[allow(dead_code, clippy::too_many_arguments)]
-    pub async fn contains_nullifier<E, C: ink_wrapper_types::Connection<E>>(
+    pub async fn contains_nullifier<TxInfo, E, C: ink_wrapper_types::Connection<TxInfo, E>>(
         &self,
         conn: &C,
         nullifier: [u64; 4],
-    ) -> Result<Result<bool, ink_primitives::LangError>, E> {
+    ) -> Result<Result<bool, ink_wrapper_types::InkLangError>, E> {
         let data = {
             let mut data = vec![0, 0, 0, 5];
             nullifier.encode_to(&mut data);
@@ -203,11 +239,15 @@ impl Instance {
 
     ///  Check if there is a token address registered at `token_id`.
     #[allow(dead_code, clippy::too_many_arguments)]
-    pub async fn registered_token_address<E, C: ink_wrapper_types::Connection<E>>(
+    pub async fn registered_token_address<
+        TxInfo,
+        E,
+        C: ink_wrapper_types::Connection<TxInfo, E>,
+    >(
         &self,
         conn: &C,
         token_id: u16,
-    ) -> Result<Result<Option<ink_primitives::AccountId>, ink_primitives::LangError>, E> {
+    ) -> Result<Result<Option<ink_primitives::AccountId>, ink_wrapper_types::InkLangError>, E> {
         let data = {
             let mut data = vec![0, 0, 0, 9];
             token_id.encode_to(&mut data);
